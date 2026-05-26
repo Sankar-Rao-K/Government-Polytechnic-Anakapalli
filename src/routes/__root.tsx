@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import logoUrl from "@/assets/logo.png";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 
@@ -74,30 +75,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Government Polytechnic, Anakapalli — Government Polytechnic, Anakapalli" },
+      { title: "Government Polytechnic, Anakapalli" },
       {
         name: "description",
         content:
-          "Government Polytechnic, Anakapalli (Government Polytechnic, Anakapalli) — A premier AICTE-recognized institution offering diploma programs in engineering with strong placements, modern labs, and experienced faculty.",
+          "Government Polytechnic, Anakapalli — A premier AICTE-recognized institution offering diploma programs in engineering with strong placements, modern labs, and experienced faculty.",
       },
       { name: "author", content: "Government Polytechnic, Anakapalli" },
-      { property: "og:title", content: "Government Polytechnic, Anakapalli — Government Polytechnic, Anakapalli" },
+      { property: "og:title", content: "Government Polytechnic, Anakapalli" },
       {
         property: "og:description",
         content:
           "Quality technical education. Modern labs. Strong placements. Discover diploma programs at Government Polytechnic, Anakapalli.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Government Polytechnic, Anakapalli — Government Polytechnic, Anakapalli" },
-      { name: "description", content: "Official college website for Government Polytechnic, Anakapalli, offering a modern, trustworthy, and accessible digital experience." },
-      { property: "og:description", content: "Official college website for Government Polytechnic, Anakapalli, offering a modern, trustworthy, and accessible digital experience." },
-      { name: "twitter:description", content: "Official college website for Government Polytechnic, Anakapalli, offering a modern, trustworthy, and accessible digital experience." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/79eeee33-75b2-4806-8680-ebaf719d0b99/id-preview-372c1616--e10905bd-ef79-4cbd-ba08-09acfe3e2618.lovable.app-1779281070387.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/79eeee33-75b2-4806-8680-ebaf719d0b99/id-preview-372c1616--e10905bd-ef79-4cbd-ba08-09acfe3e2618.lovable.app-1779281070387.png" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Government Polytechnic, Anakapalli" },
+      {
+        name: "twitter:description",
+        content:
+          "Official website of Government Polytechnic, Anakapalli — Quality technical education in Andhra Pradesh.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: logoUrl },
+      { rel: "apple-touch-icon", href: logoUrl },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
