@@ -15,7 +15,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "py-16 md:py-24",
+        "py-10 md:py-16",
         muted && "bg-surface",
         className,
       )}
@@ -44,11 +44,11 @@ export function SectionHeading({
           {eyebrow}
         </div>
       )}
-      <h2 className="mt-4 font-display text-3xl md:text-4xl font-semibold text-foreground">
+      <h2 className="mt-3 font-display text-2xl md:text-4xl font-semibold text-foreground">
         {title}
       </h2>
       {description && (
-        <p className="mt-3 text-base md:text-lg text-muted-foreground leading-relaxed">
+        <p className="mt-2 text-sm md:text-lg text-muted-foreground leading-relaxed">
           {description}
         </p>
       )}

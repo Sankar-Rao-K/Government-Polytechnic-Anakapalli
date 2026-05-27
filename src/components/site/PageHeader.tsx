@@ -18,12 +18,7 @@ export function PageHeader({
     <section className="relative overflow-hidden border-b border-border bg-primary text-primary-foreground">
       {image ? (
         <>
-          <img
-            src={image}
-            alt=""
-            aria-hidden
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          <img src={image} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-black/35" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         </>
@@ -41,25 +36,31 @@ export function PageHeader({
           />
         </>
       )}
-      <div className="container-page relative py-16 md:py-24 animate-fade-up">
+      <div className="container-page relative py-8 md:py-16 animate-fade-up">
         {eyebrow && (
           <div className="inline-flex items-center rounded-full border border-white/25 bg-white/10 backdrop-blur px-3 py-1 text-xs font-medium uppercase tracking-wider text-gold">
             {eyebrow}
           </div>
         )}
-        <h1 className="mt-4 font-display text-3xl md:text-5xl font-semibold max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
+        <h1 className="mt-3 font-display text-2xl md:text-5xl font-semibold max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
           {title}
         </h1>
         {description && (
-          <p className="mt-4 max-w-2xl text-base md:text-lg opacity-90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.35)]">{description}</p>
+          <p className="mt-2 max-w-2xl text-sm md:text-lg opacity-90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.35)] line-clamp-2 md:line-clamp-none">
+            {description}
+          </p>
         )}
         {breadcrumb && (
-          <nav className="mt-6 flex items-center gap-1.5 text-sm opacity-85">
+          <nav className="mt-4 flex items-center gap-1.5 text-xs md:text-sm opacity-85">
             <Link to="/" className="hover:text-gold">Home</Link>
             {breadcrumb.map((b, i) => (
               <span key={i} className="flex items-center gap-1.5">
-                <ChevronRight className="h-3.5 w-3.5" />
-                {b.to ? <Link to={b.to} className="hover:text-gold">{b.label}</Link> : <span>{b.label}</span>}
+                <ChevronRight className="h-3 w-3" />
+                {b.to ? (
+                  <Link to={b.to} className="hover:text-gold">{b.label}</Link>
+                ) : (
+                  <span>{b.label}</span>
+                )}
               </span>
             ))}
           </nav>
