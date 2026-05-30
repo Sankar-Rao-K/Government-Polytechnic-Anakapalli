@@ -12,6 +12,8 @@ import appCss from "../styles.css?url";
 import logoUrl from "@/assets/logo.png";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { AdminProvider } from "@/contexts/AdminContext";
+import { AdminPanel } from "@/components/admin/AdminPanel";
 
 function NotFoundComponent() {
   return (
@@ -134,13 +136,16 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-dvh flex-col">
-        <Header />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <AdminProvider>
+        <div className="flex min-h-dvh flex-col">
+          <Header />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+        <AdminPanel />
+      </AdminProvider>
     </QueryClientProvider>
   );
 }
