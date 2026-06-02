@@ -21,6 +21,7 @@ const MORE = [
   { to: "/scholarships", label: "Scholarships" },
   { to: "/library", label: "Library" },
   { to: "/student-services", label: "Student Services" },
+  { to: "/events", label: "Events" },
   { to: "/anti-ragging", label: "Anti-Ragging" },
 ];
 
