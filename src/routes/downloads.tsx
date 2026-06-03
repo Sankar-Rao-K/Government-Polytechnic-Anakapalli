@@ -7,8 +7,8 @@ import headerImg from "@/assets/gallery-library.jpg";
 export const Route = createFileRoute("/downloads")({
   head: () => ({
     meta: [
-      { title: "Downloads — Government Polytechnic, Anakapalli" },
-      { name: "description", content: "Download forms, syllabus, circulars and academic resources from Government Polytechnic, Anakapalli." },
+      { title: "Downloads | Government Polytechnic Anakapalli" },
+      { name: "description", content: "Download academic forms, syllabus documents, examination resources, scholarship applications, circulars and institutional documents from Government Polytechnic Anakapalli." },
     ],
   }),
   component: DownloadsPage,
@@ -61,7 +61,7 @@ function DownloadsPage() {
                       </div>
                       <span className="text-sm font-medium text-foreground group-hover:text-primary">{it}</span>
                     </div>
-                    <Download className="h-4 w-4 text-muted-foreground group-hover:text-primary" />
+                    <Download aria-hidden="true" className="h-4 w-4 text-muted-foreground group-hover:text-primary" />
                   </a>
                 ))}
               </div>

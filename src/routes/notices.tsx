@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/notices")({
   head: () => ({
     meta: [
-      { title: "Notices & Announcements — Government Polytechnic, Anakapalli" },
-      { name: "description", content: "Latest notices, circulars and announcements from Government Polytechnic, Anakapalli." },
+      { title: "Notices & Announcements | Government Polytechnic Anakapalli" },
+      { name: "description", content: "Latest academic notices, examination updates, scholarship notifications, placement announcements and institutional circulars from Government Polytechnic Anakapalli." },
     ],
   }),
   component: NoticesPage,
@@ -24,7 +24,14 @@ function NoticesPage() {
   const [cat, setCat] = useState("All");
 
   const filtered = useMemo(
-    () => content.notices.filter((n) => cat === "All" || n.category === cat),
+    () =>
+      [...content.notices]
+        .filter((n) => cat === "All" || n.category === cat)
+        .sort(
+          (a, b) =>
+            new Date(b.date).getTime() -
+            new Date(a.date).getTime()
+        ),
     [cat, content.notices]
   );
 
@@ -40,7 +47,10 @@ function NoticesPage() {
 
       <Section>
         {/* Category filter — scrollable on mobile */}
-        <div className="flex gap-2 overflow-x-auto pb-2 mb-6 scrollbar-none">
+        <div
+          aria-label="Notice Categories"
+          className="flex gap-2 overflow-x-auto pb-2 mb-6 scrollbar-none"
+        >
           {CATS.map((c) => (
             <button key={c} onClick={() => setCat(c)}
               className={cn(
@@ -53,7 +63,8 @@ function NoticesPage() {
         </div>
 
         {filtered.length === 0 ? (
-          <div className="py-16 text-center text-muted-foreground text-sm">No notices in this category.</div>
+          <div className="py-16 text-center text-muted-foreground text-sm">No notices found for the selected category.
+            Try choosing another category.</div>
         ) : (
           <div className="grid gap-3">
             {filtered.map((n) => (

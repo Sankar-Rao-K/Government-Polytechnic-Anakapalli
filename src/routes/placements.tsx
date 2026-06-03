@@ -12,8 +12,8 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/placements")({
   head: () => ({
     meta: [
-      { title: "Placements — Government Polytechnic, Anakapalli" },
-      { name: "description", content: "Campus placement data for 2023-26 at Government Polytechnic, Anakapalli — real student placements across leading companies." },
+      { title: "Placements | Government Polytechnic Anakapalli" },
+      { name: "description", content: "Placement opportunities, recruiter information, higher education pathways, ECET guidance and student career outcomes at Government Polytechnic Anakapalli." },
     ],
   }),
   component: PlacementsPage,
@@ -127,7 +127,7 @@ function CompanyLogo({ logo, name }: { logo: string; name: string }) {
   return (
     <img
       src={logo}
-      alt={name}
+      alt={`${name} company logo`}
       onError={() => setErr(true)}
       className="h-8 w-8 rounded-full object-contain bg-white border border-border p-0.5 shrink-0"
     />
@@ -139,8 +139,8 @@ function BranchBadge({ branch }: { branch: "CME" | "ECE" | "Both" }) {
     <span className={cn(
       "inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold",
       branch === "CME" ? "bg-blue-100 text-blue-700" :
-      branch === "ECE" ? "bg-purple-100 text-purple-700" :
-      "bg-slate-100 text-slate-600"
+        branch === "ECE" ? "bg-purple-100 text-purple-700" :
+          "bg-slate-100 text-slate-600"
     )}>
       {branch}
     </span>

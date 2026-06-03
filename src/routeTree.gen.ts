@@ -16,7 +16,6 @@ import { Route as PlacementsRouteImport } from './routes/placements'
 import { Route as NoticesRouteImport } from './routes/notices'
 import { Route as LibraryRouteImport } from './routes/library'
 import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as FacultyRouteImport } from './routes/faculty'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as DepartmentsRouteImport } from './routes/departments'
@@ -59,11 +58,6 @@ const LibraryRoute = LibraryRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FacultyRoute = FacultyRouteImport.update({
-  id: '/faculty',
-  path: '/faculty',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsRoute = EventsRouteImport.update({
@@ -116,7 +110,6 @@ export interface FileRoutesByFullPath {
   '/departments': typeof DepartmentsRoute
   '/downloads': typeof DownloadsRoute
   '/events': typeof EventsRoute
-  '/faculty': typeof FacultyRoute
   '/gallery': typeof GalleryRoute
   '/library': typeof LibraryRoute
   '/notices': typeof NoticesRoute
@@ -134,7 +127,6 @@ export interface FileRoutesByTo {
   '/departments': typeof DepartmentsRoute
   '/downloads': typeof DownloadsRoute
   '/events': typeof EventsRoute
-  '/faculty': typeof FacultyRoute
   '/gallery': typeof GalleryRoute
   '/library': typeof LibraryRoute
   '/notices': typeof NoticesRoute
@@ -153,7 +145,6 @@ export interface FileRoutesById {
   '/departments': typeof DepartmentsRoute
   '/downloads': typeof DownloadsRoute
   '/events': typeof EventsRoute
-  '/faculty': typeof FacultyRoute
   '/gallery': typeof GalleryRoute
   '/library': typeof LibraryRoute
   '/notices': typeof NoticesRoute
@@ -173,7 +164,6 @@ export interface FileRouteTypes {
     | '/departments'
     | '/downloads'
     | '/events'
-    | '/faculty'
     | '/gallery'
     | '/library'
     | '/notices'
@@ -191,7 +181,6 @@ export interface FileRouteTypes {
     | '/departments'
     | '/downloads'
     | '/events'
-    | '/faculty'
     | '/gallery'
     | '/library'
     | '/notices'
@@ -209,7 +198,6 @@ export interface FileRouteTypes {
     | '/departments'
     | '/downloads'
     | '/events'
-    | '/faculty'
     | '/gallery'
     | '/library'
     | '/notices'
@@ -228,7 +216,6 @@ export interface RootRouteChildren {
   DepartmentsRoute: typeof DepartmentsRoute
   DownloadsRoute: typeof DownloadsRoute
   EventsRoute: typeof EventsRoute
-  FacultyRoute: typeof FacultyRoute
   GalleryRoute: typeof GalleryRoute
   LibraryRoute: typeof LibraryRoute
   NoticesRoute: typeof NoticesRoute
@@ -287,13 +274,6 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faculty': {
-      id: '/faculty'
-      path: '/faculty'
-      fullPath: '/faculty'
-      preLoaderRoute: typeof FacultyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events': {
@@ -364,7 +344,6 @@ const rootRouteChildren: RootRouteChildren = {
   DepartmentsRoute: DepartmentsRoute,
   DownloadsRoute: DownloadsRoute,
   EventsRoute: EventsRoute,
-  FacultyRoute: FacultyRoute,
   GalleryRoute: GalleryRoute,
   LibraryRoute: LibraryRoute,
   NoticesRoute: NoticesRoute,

@@ -7,8 +7,8 @@ import galleryLibrary from "@/assets/gallery-library.jpg";
 export const Route = createFileRoute("/library")({
   head: () => ({
     meta: [
-      { title: "Central Library — Government Polytechnic, Anakapalli" },
-      { name: "description", content: "Central library facilities, collections and digital resources at Government Polytechnic, Anakapalli." },
+      { title: "Central Library | Government Polytechnic Anakapalli" },
+      { name: "description", content: "Explore the Central Library of Government Polytechnic Anakapalli, featuring books, journals, digital resources, reading facilities, and academic support services." },
     ],
   }),
   component: LibraryPage,
@@ -27,7 +27,7 @@ function LibraryPage() {
 
       <Section>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <img src={galleryLibrary} alt="Library" width={1024} height={768} loading="lazy" className="rounded-2xl shadow-elevated" />
+          <img src={galleryLibrary} alt="Government Polytechnic Anakapalli Central Library" width={1024} height={768} loading="lazy" decoding="async" className="rounded-2xl shadow-elevated" />
           <div>
             <SectionHeading eyebrow="At a glance" title="Books, journals, and digital access." />
             <div className="mt-6 grid grid-cols-2 gap-4">
@@ -52,10 +52,10 @@ function LibraryPage() {
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
             { icon: BookOpen, t: "Reference Section", d: "Curated reference books, handbooks and competitive exam material." },
-            { icon: Monitor, t: "Digital Library", d: "Access to NPTEL, IEEE Xplore, Springer, and DELNET e-resources." },
+            { icon: Monitor, t: "Digital Library", d: "Access to digital learning resources, online journals, and academic reference materials." },
             { icon: Newspaper, t: "Periodicals", d: "National & international journals, magazines and newspapers." },
             { icon: Wifi, t: "Wi-Fi Reading Zone", d: "Quiet, high-speed Wi-Fi study area open to all students." },
-            { icon: Clock, t: "Extended Hours", d: "Open Mon–Sat: 8 AM – 8 PM. Exam season: extended to 10 PM." },
+            { icon: Clock, t: "Extended Hours", d: "Library working hours are notified by the institution from time to time." },
             { icon: BookOpen, t: "Book Bank", d: "Free textbook loan for SC/ST and economically weaker students." },
           ].map(({ icon: Icon, t, d }) => (
             <div key={t} className="rounded-2xl border border-border bg-card p-6 shadow-soft">

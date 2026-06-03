@@ -12,23 +12,49 @@ import heroImg from "@/assets/hero-campus.jpg";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Government Polytechnic, Anakapalli" },
-      { name: "description", content: "Campus life, labs, classrooms, events and workshops at Government Polytechnic, Anakapalli." },
+      { title: "Gallery | Government Polytechnic Anakapalli" },
+      { name: "description", content: "Photo gallery of Government Polytechnic Anakapalli showcasing campus facilities, laboratories, classrooms, workshops, library resources and student activities." },
     ],
   }),
   component: GalleryPage,
 });
 
 const ITEMS = [
-  { src: heroImg, cat: "Campus", alt: "Main campus view" },
-  { src: galleryLab, cat: "Labs", alt: "Computer lab" },
-  { src: galleryClass, cat: "Classroom", alt: "Classroom session" },
-  { src: galleryWorkshop, cat: "Workshop", alt: "Mechanical workshop" },
-  { src: galleryLibrary, cat: "Library", alt: "Library" },
-  { src: galleryEvent, cat: "Events", alt: "Campus event" },
-  { src: galleryCampus, cat: "Campus", alt: "Building facade" },
-  { src: galleryLab, cat: "Labs", alt: "Lab session" },
-  { src: galleryClass, cat: "Classroom", alt: "Lecture hall" },
+  {
+    src: heroImg,
+    cat: "Campus",
+    alt: "Government Polytechnic Anakapalli Main Campus View",
+  },
+  {
+    src: galleryLab,
+    cat: "Labs",
+    alt: "Government Polytechnic Anakapalli Computer Engineering Laboratory",
+  },
+  {
+    src: galleryClass,
+    cat: "Classroom",
+    alt: "Government Polytechnic Anakapalli Smart Classroom Session",
+  },
+  {
+    src: galleryWorkshop,
+    cat: "Workshop",
+    alt: "Government Polytechnic Anakapalli Engineering Workshop",
+  },
+  {
+    src: galleryLibrary,
+    cat: "Library",
+    alt: "Government Polytechnic Anakapalli Central Library",
+  },
+  {
+    src: galleryEvent,
+    cat: "Events",
+    alt: "Government Polytechnic Anakapalli Student Activity Event",
+  },
+  {
+    src: galleryCampus,
+    cat: "Campus",
+    alt: "Government Polytechnic Anakapalli Academic Building",
+  },
 ];
 
 function GalleryPage() {
@@ -43,9 +69,10 @@ function GalleryPage() {
       />
       <Section>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {ITEMS.map((it, i) => (
-            <figure key={i} className="group overflow-hidden rounded-xl border border-border bg-card relative">
-              <img src={it.src} alt={it.alt} loading="lazy" width={1024} height={768} className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105" />
+          {ITEMS.map((it) => (
+            <figure key={`${it.cat}-${it.alt}`} aria-label={it.alt}
+              className="group overflow-hidden rounded-xl border border-border bg-card relative">
+              <img src={it.src} alt={it.alt} loading="lazy" decoding="async" width={1024} height={768} className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105" />
               <figcaption className="absolute bottom-3 left-3 rounded-full bg-background/95 backdrop-blur px-3 py-1 text-xs font-semibold text-primary">
                 {it.cat}
               </figcaption>

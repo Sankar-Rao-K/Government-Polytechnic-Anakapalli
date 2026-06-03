@@ -4,34 +4,33 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.png";
 
+// Faculty removed — shown inside Departments page
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/departments", label: "Departments" },
-  { to: "/faculty", label: "Faculty" },
-  { to: "/placements", label: "Careers" },
-  { to: "/notices", label: "Notices" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/contact", label: "Contact" },
+  { to: "/",           label: "Home"        },
+  { to: "/about",      label: "About"       },
+  { to: "/departments",label: "Departments" },
+  { to: "/placements", label: "Placements"  },
+  { to: "/notices",    label: "Notices"     },
+  { to: "/events",     label: "Events"      },
+  { to: "/gallery",    label: "Gallery"     },
 ] as const;
 
 const MORE = [
-  { to: "/committees", label: "Committees & Cells" },
-  { to: "/downloads", label: "Downloads" },
-  { to: "/scholarships", label: "Scholarships" },
-  { to: "/library", label: "Library" },
+  { to: "/committees",     label: "Committees & Cells" },
+  { to: "/scholarships",   label: "Scholarships"       },
+  { to: "/library",        label: "Library"            },
+  { to: "/downloads",      label: "Downloads"          },
   { to: "/student-services", label: "Student Services" },
-  { to: "/events", label: "Events" },
-  { to: "/anti-ragging", label: "Anti-Ragging" },
+  { to: "/anti-ragging",   label: "Anti-Ragging"       },
+  { to: "/admin-login",    label: "Admin Login"        },
 ];
 
 export function Header() {
-  const [open, setOpen] = useState(false);
+  const [open,     setOpen]     = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
-  const moreRef = useRef<HTMLDivElement>(null);
+  const moreRef  = useRef<HTMLDivElement>(null);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
@@ -50,7 +49,7 @@ export function Header() {
       <div className="hidden md:block bg-primary text-primary-foreground text-xs">
         <div className="container-page flex h-9 items-center justify-between">
           <span className="opacity-90">
-            Government of Andhra Pradesh · State Board of Technical Education & Training
+            Government of Andhra Pradesh · State Board of Technical Education and Training
           </span>
           <div className="flex items-center gap-4 opacity-90">
             <a href="tel:+919010222173" className="inline-flex items-center gap-1.5 hover:text-gold">
@@ -63,11 +62,7 @@ export function Header() {
 
       <div className="container-page flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-3 group">
-          <img
-            src={logo}
-            alt="Government Polytechnic, Anakapalli logo"
-            className="h-12 w-12 object-contain shrink-0"
-          />
+          <img src={logo} alt="Institution logo" className="h-12 w-12 object-contain shrink-0" />
           <div className="leading-tight">
             <div className="font-display text-base md:text-lg font-semibold text-primary">
               Government Polytechnic, Anakapalli
@@ -83,59 +78,45 @@ export function Header() {
           {NAV.map((item) => {
             const active = pathname === item.to;
             return (
-              <Link
-                key={item.to}
-                to={item.to}
+              <Link key={item.to} to={item.to}
                 className={cn(
                   "relative px-3 py-2 text-sm font-medium rounded-md transition-colors",
-                  active
-                    ? "text-primary"
-                    : "text-foreground/75 hover:text-primary hover:bg-accent",
-                )}
-              >
+                  active ? "text-primary" : "text-foreground/75 hover:text-primary hover:bg-accent"
+                )}>
                 {item.label}
-                {active && (
-                  <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-gold" />
-                )}
+                {active && <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-gold" />}
               </Link>
             );
           })}
 
           {/* More dropdown */}
           <div ref={moreRef} className="relative">
-            <button
-              onClick={() => setMoreOpen((v) => !v)}
+            <button onClick={() => setMoreOpen((v) => !v)}
               className={cn(
                 "relative inline-flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors",
-                moreActive
-                  ? "text-primary"
-                  : "text-foreground/75 hover:text-primary hover:bg-accent",
-              )}
-            >
+                moreActive ? "text-primary" : "text-foreground/75 hover:text-primary hover:bg-accent"
+              )}>
               More
               <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", moreOpen && "rotate-180")} />
-              {moreActive && (
-                <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-gold" />
-              )}
+              {moreActive && <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-gold" />}
             </button>
 
             {moreOpen && (
               <div className="absolute right-0 top-full mt-2 w-52 rounded-xl border border-border bg-background shadow-elevated py-1.5 animate-fade-in">
                 {MORE.map((item) => {
                   const active = pathname === item.to;
+                  const isLogin = item.to === "/admin-login";
                   return (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      onClick={() => setMoreOpen(false)}
+                    <Link key={item.to} to={item.to} onClick={() => setMoreOpen(false)}
                       className={cn(
                         "flex items-center px-4 py-2.5 text-sm font-medium transition-colors",
-                        active
-                          ? "bg-primary/10 text-primary"
-                          : "text-foreground/80 hover:bg-accent hover:text-primary",
-                      )}
-                    >
-                      {active && <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary" />}
+                        isLogin
+                          ? "text-primary font-semibold border-t border-border mt-1 pt-3"
+                          : active
+                            ? "bg-primary/10 text-primary"
+                            : "text-foreground/80 hover:bg-accent hover:text-primary"
+                      )}>
+                      {active && !isLogin && <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary" />}
                       {item.label}
                     </Link>
                   );
@@ -146,19 +127,14 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Link
-            to="/contact"
-            className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft hover:opacity-95 transition"
-          >
+          <Link to="/contact"
+            className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft hover:opacity-95 transition">
             Contact Us
           </Link>
         </div>
 
-        <button
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-border"
-        >
+        <button aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen((v) => !v)}
+          className="lg:hidden inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-border">
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
@@ -170,24 +146,17 @@ export function Header() {
             {[...NAV, ...MORE].map((item) => {
               const active = pathname === item.to;
               return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
+                <Link key={item.to} to={item.to} onClick={() => setOpen(false)}
                   className={cn(
                     "rounded-md px-3 py-3 text-sm font-medium",
-                    active ? "bg-primary text-primary-foreground" : "hover:bg-accent",
-                  )}
-                >
+                    active ? "bg-primary text-primary-foreground" : "hover:bg-accent"
+                  )}>
                   {item.label}
                 </Link>
               );
             })}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-gold px-4 py-3 text-sm font-semibold text-gold-foreground"
-            >
+            <Link to="/contact" onClick={() => setOpen(false)}
+              className="mt-2 inline-flex items-center justify-center rounded-md bg-gold px-4 py-3 text-sm font-semibold text-gold-foreground">
               Contact Office
             </Link>
           </nav>
