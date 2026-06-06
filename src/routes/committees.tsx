@@ -21,18 +21,10 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/committees")({
-  head: () => ({
-    meta: [
-      { title: "Committees — Government Polytechnic, Anakapalli" },
-      {
-        name: "description",
-        content: "Institutional committees at Government Polytechnic, Anakapalli.",
-      },
-    ],
-  }),
-  component: CommitteesPage,
-});
+import { useEffect } from "react";
+function useSEO(t: string, d: string) { useEffect(() => { document.title = t; let m = document.querySelector('meta[name="description"]') as HTMLMetaElement|null; if(!m){m=document.createElement("meta");m.name="description";document.head.appendChild(m);} m.content=d; }, [t,d]); }
+
+export const Route = createFileRoute("/committees")({ component: CommitteesPage });
 
 type Member = { name: string; role: string; designation: string };
 
@@ -71,14 +63,14 @@ const COMMITTEES: Committee[] = [
     date: "20 July 2025",
     tagline: "Your first point of contact for any concern.",
     brief:
-      "Every student deserves someone to turn to. The Student Advisors at GP Anakapalli are experienced faculty members appointed specifically to listen, guide, and support you — whether you're struggling academically, dealing with personal stress, or simply need direction. Think of them as your mentors within the institution.",
+      "Every student deserves someone to turn to. Our Student Advisors are experienced faculty members appointed to listen, guide and support every student. Whether you are struggling academically, dealing with personal stress or simply need direction, they are your first point of contact on campus.",
     whoCanApproach:
-      "Any student — male or female — who needs personal counselling, academic guidance, welfare support, or help navigating institutional processes.",
+      "Any student who needs personal counselling, academic guidance, welfare support, or help navigating institutional processes.",
     whatToExpect:
       "A confidential, non-judgmental conversation. Your advisor will guide you to the right resources or committee if needed, and follow up to make sure your concern is resolved.",
     members: [
-      { name: "R. Ganesh Kumar", role: "Advisor — Male Students", designation: "Lecturer, Mathematics" },
-      { name: "Ch. Sarojini", role: "Advisor — Female Students", designation: "Lecturer, CME" },
+      { name: "R. Ganesh Kumar", role: "Advisor, Male Students", designation: "Lecturer, Mathematics" },
+      { name: "Ch. Sarojini", role: "Advisor, Female Students", designation: "Lecturer, CME" },
     ],
     reportable: true,
     reportNote: "Use this form to reach your Student Advisor for counselling, welfare support, or general guidance.",
@@ -96,7 +88,7 @@ const COMMITTEES: Committee[] = [
     date: "20 July 2025",
     tagline: "Every complaint deserves a fair hearing.",
     brief:
-      "The Grievance Cell is the institution's official channel for resolving complaints and suggestions from both students and staff. Whether it's an issue with examinations, fee collection, facilities, classroom management, or interpersonal conflicts — this cell ensures your voice is heard and acted upon promptly. No concern is too small.",
+      "The Grievance Cell is the institution's official channel for resolving complaints and suggestions from both students and staff. Whether it is an examination issue, fee concern, facility problem or interpersonal conflict, this cell ensures your voice is heard and acted upon promptly. No concern is too small.",
     whoCanApproach:
       "Students and staff members who have any academic, administrative, or personal grievance related to the institution. Even suggestions for improvement are welcome.",
     whatToExpect:
@@ -125,9 +117,9 @@ const COMMITTEES: Committee[] = [
     date: "20 July 2025",
     tagline: "A campus where every student feels safe.",
     brief:
-      "Ragging is not a tradition — it is abuse. The Anti-Ragging Committee at GP Anakapalli enforces a strict zero-tolerance policy against ragging in any form: physical, verbal, psychological, or online. Backed by Supreme Court directives and UGC regulations, this committee investigates all complaints swiftly and takes strict disciplinary action. Your identity is always protected.",
+      "Ragging is not a tradition. It is abuse. The Anti-Ragging Committee enforces a strict zero-tolerance policy against ragging in any form: physical, verbal, psychological, or online. Backed by Supreme Court directives and UGC regulations, this committee investigates all complaints swiftly and takes strict disciplinary action. Your identity is always protected.",
     whoCanApproach:
-      "Any student who has experienced or witnessed ragging, bullying, intimidation, or any form of harassment by seniors or peers — inside or outside the campus.",
+      "Any student who has experienced or witnessed ragging, bullying, intimidation or any form of harassment by seniors or peers, inside or outside the campus.",
     whatToExpect:
       "Immediate action. Your complaint is treated urgently and confidentially. The accused will face disciplinary proceedings as per institutional rules and applicable law.",
     members: [
@@ -155,7 +147,7 @@ const COMMITTEES: Committee[] = [
     date: "20 July 2025",
     tagline: "A safe space for every woman on campus.",
     brief:
-      "Constituted under AICTE's Gender Sensitization, Prevention and Prohibition of Sexual Harassment of Women Employees and Students Regulations 2016, the ICC is a legally mandated body that ensures every woman — student or staff — can work and study in a dignified, harassment-free environment. The committee includes student members to ensure relatability and trust.",
+      "Constituted under AICTE's Gender Sensitization, Prevention and Prohibition of Sexual Harassment of Women Employees and Students Regulations 2016, the ICC is a legally mandated body that ensures every woman student and staff member can work and study in a dignified, harassment-free environment. The committee includes student members to ensure relatability and trust.",
     whoCanApproach:
       "Women students and women staff members who have experienced sexual harassment, gender-based discrimination, or any conduct that creates a hostile or uncomfortable environment.",
     whatToExpect:
@@ -216,7 +208,7 @@ const COMMITTEES: Committee[] = [
     date: "20 July 2025",
     tagline: "Safety, dignity and empowerment for every woman.",
     brief:
-      "The Women Protection Cell goes beyond just handling complaints — it actively works to create a campus culture of respect, safety, and empowerment for all women. From safety awareness to addressing day-to-day concerns, the cell is a dedicated support system for female students and staff. No issue is too small to bring here.",
+      "The Women Protection Cell goes beyond handling complaints. It actively works to create a campus culture of respect, safety, and empowerment for all women. From safety awareness to addressing day-to-day concerns, the cell is a dedicated support system for female students and staff. No issue is too small to bring here.",
     whoCanApproach:
       "All women students and staff members who have any safety concern, welfare issue, or experience that made them feel unsafe, disrespected, or uncomfortable on campus.",
     whatToExpect:
@@ -245,9 +237,9 @@ const COMMITTEES: Committee[] = [
     date: "20 July 2025",
     tagline: "Transparency is the foundation of trust.",
     brief:
-      "Under the Right to Information Act 2005, every citizen has the legal right to request information from any government institution. The RTI Cell at GP Anakapalli facilitates this process through appointed officers. Whether you want to know about admissions, expenditure, infrastructure, or any institutional matter — you have the right to ask, and we have the duty to respond.",
+      "Under the Right to Information Act 2005, every citizen has the legal right to request information from any government institution. The RTI Cell facilitates this process through appointed officers. Whether you want to know about admissions, expenditure or infrastructure, you have the right to ask and we have the duty to respond.",
     whoCanApproach:
-      "Any citizen — student, parent, staff, or member of the public — who wishes to seek information about the institution under the RTI Act 2005.",
+      "Any citizen, whether student, parent, staff or member of the public, who wishes to seek information about the institution under the RTI Act 2005.",
     whatToExpect:
       "Your RTI application will be processed within 30 days as per the Act. Information will be provided in the format requested, subject to exemptions under the Act.",
     members: [
@@ -360,7 +352,7 @@ function ReportForm({ committee }: { committee: Committee }) {
       <div className="grid gap-1.5">
         <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Describe your complaint *</label>
         <textarea required name="description" value={form.description} onChange={handleChange} rows={4}
-          placeholder="Describe the incident in detail — what happened, when, where, and who was involved."
+          placeholder="Describe the incident in detail: what happened, when, where and who was involved."
           className="rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" />
       </div>
       <button type="submit"
@@ -621,6 +613,7 @@ function DesktopCommitteeCard({ committee, index, onClick }: { committee: Commit
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
 function CommitteesPage() {
+  useSEO("Committees and Cells | Diploma Polytechnic, Anakapalli", "Official committees for student welfare, anti-ragging, grievance redressal, women safety and SC/ST rights at the diploma polytechnic in Anakapalli.");
   const [selected, setSelected] = useState<Committee | null>(null);
 
   const handleSelect = (c: Committee) => {
