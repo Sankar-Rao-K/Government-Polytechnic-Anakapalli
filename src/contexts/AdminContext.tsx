@@ -188,8 +188,8 @@ async function syncAction(action: Action): Promise<void> {
 // ─── Context ──────────────────────────────────────────────────────────────────
 
 const LS_KEY         = "gpa_site_content";
-const ADMIN_EMAIL    = "admin@gpa.edu.in";
-const ADMIN_PASSWORD = "GPA@2025";
+const ADMIN_NAME  = "admin";
+const ADMIN_EMAIL = "admin@gpa.edu.in";
 
 interface AdminContextValue {
   content:         AdminContent;
@@ -247,8 +247,8 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     syncAction(action).catch(err => console.error("Supabase sync error:", err));
   }, []);
 
-  const login = useCallback((email: string, pw: string): boolean => {
-    if (email.trim().toLowerCase() === ADMIN_EMAIL && pw === ADMIN_PASSWORD) {
+  const login = useCallback((name: string, email: string): boolean => {
+    if (name.trim().toLowerCase() === ADMIN_NAME && email.trim().toLowerCase() === ADMIN_EMAIL) {
       setIsAdmin(true);
       sessionStorage.setItem("gpa_admin", "true");
       return true;
