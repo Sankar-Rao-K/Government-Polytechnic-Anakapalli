@@ -12,15 +12,12 @@ const NAV = [
   { to: "/placements",  label: "Placements"  },
   { to: "/notices",     label: "Notices"     },
   { to: "/events",      label: "Events"      },
-  { to: "/gallery",     label: "Gallery"     },
-  { to: "/contact",     label: "Contact"     },
 ] as const;
 
 const MORE = [
   { to: "/committees",      label: "Committees & Cells" },
   { to: "/scholarships",    label: "Scholarships"       },
   { to: "/library",         label: "Library"            },
-  { to: "/downloads",       label: "Downloads"          },
   { to: "/student-services",label: "Student Services"   },
   { to: "/anti-ragging",    label: "Anti-Ragging"       },
 ];
