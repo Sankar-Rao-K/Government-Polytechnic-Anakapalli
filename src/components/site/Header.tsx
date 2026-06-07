@@ -12,9 +12,11 @@ const NAV = [
   { to: "/placements",  label: "Placements"  },
   { to: "/notices",     label: "Notices"     },
   { to: "/events",      label: "Events"      },
+  { to: "/contact",     label: "Contact"     },
 ] as const;
 
 const MORE = [
+  { to: "/admissions",      label: "Admissions (POLYCET)" },
   { to: "/committees",      label: "Committees & Cells" },
   { to: "/scholarships",    label: "Scholarships"       },
   { to: "/library",         label: "Library"            },

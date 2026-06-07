@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  ArrowRight, Building2, Briefcase, Bell, Award, Download,
+  ArrowRight, Building2, Briefcase, Bell, Award,
   ClipboardList, Users, Calendar, FileText, Quote, BookOpen,
   Factory, GraduationCap, BookMarked,
 } from "lucide-react";
@@ -36,7 +36,6 @@ const QUICK = [
   { to: "/placements",  icon: Briefcase,    label: "Placements",  desc: "Career pathways"     },
   { to: "/notices",     icon: Bell,         label: "Notices",     desc: "Latest updates"      },
   { to: "/scholarships",icon: Award,        label: "Scholarships",desc: "SC/ST/BC/EBC"        },
-  { to: "/downloads",   icon: Download,     label: "Downloads",   desc: "Forms & syllabus"    },
   { to: "/notices",     icon: ClipboardList,label: "Results",     desc: "Sem & exam results"  },
   { to: "/library",     icon: BookOpen,     label: "Library",     desc: "Books & e-resources" },
 ] as const;
@@ -427,11 +426,6 @@ function HomePage() {
               />
             </div>
           ))}
-        </div>
-        <div className="mt-5 text-center">
-          <Link to="/gallery" className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm font-semibold hover:bg-accent">
-            View full gallery <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
       </Section>
 

@@ -6,21 +6,24 @@ export function Footer() {
   return (
     <footer className="mt-20 bg-primary text-primary-foreground">
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
+        {/* Brand */}
         <div>
           <div className="flex items-center gap-3">
             <img
               src={logo}
-              alt="Government Polytechnic, Anakapalli logo"
+              alt="Government Polytechnic, Anakapalli"
               className="h-12 w-12 object-contain rounded-full bg-white/95 p-0.5"
             />
             <div>
-              <div className="font-display font-semibold leading-tight">Government Polytechnic,<br />Anakapalli</div>
+              <div className="font-display font-semibold leading-tight">
+                Government Polytechnic,<br />Anakapalli
+              </div>
               <div className="text-xs opacity-75 mt-0.5">Estd. 2008</div>
             </div>
           </div>
           <p className="mt-4 text-sm opacity-80 leading-relaxed">
-            A premier government polytechnic institution committed to delivering quality
-            technical education and skilled professionals to the nation.
+            A premier government polytechnic committed to quality technical
+            education and producing skilled professionals for the nation.
           </p>
           <div className="mt-5 flex gap-3">
             {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
@@ -36,51 +39,49 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Quick Links — gallery and downloads removed */}
         <div>
           <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-gold">
             Quick Links
           </h3>
           <ul className="mt-4 space-y-2 text-sm opacity-90">
             {[
-              ["/about", "About College"],
+              ["/about",       "About"],
               ["/departments", "Departments"],
-              ["/faculty", "Faculty"],
-              ["/placements", "Careers"],
-              ["/notices", "Notices"],
-              ["/downloads", "Downloads"],
+              ["/placements",  "Careers"],
+              ["/notices",     "Notices"],
+              ["/events",      "Events"],
+              ["/committees",  "Committees"],
             ].map(([to, label]) => (
               <li key={to}>
-                <Link to={to} className="hover:text-gold transition">
-                  {label}
-                </Link>
+                <Link to={to} className="hover:text-gold transition">{label}</Link>
               </li>
             ))}
           </ul>
         </div>
 
+        {/* Student Hub — gallery and downloads removed */}
         <div>
           <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-gold">
             Student Hub
           </h3>
           <ul className="mt-4 space-y-2 text-sm opacity-90">
             {[
-              ["/library", "Library"],
-              ["/scholarships", "Scholarships"],
-              ["/student-services", "Student Services"],
-              ["/anti-ragging", "Anti-Ragging Cell"],
-              ["/faculty", "Faculty"],
-              ["/committees", "Committees & Cells"],
-              ["/gallery", "Gallery"],
+              ["/library",         "Library"],
+              ["/scholarships",    "Scholarships"],
+              ["/student-services","Student Services"],
+              ["/anti-ragging",    "Anti-Ragging Cell"],
+              ["/principal",       "Principal's Message"],
+              ["/contact",         "Contact Us"],
             ].map(([to, label]) => (
               <li key={to}>
-                <Link to={to} className="hover:text-gold transition">
-                  {label}
-                </Link>
+                <Link to={to} className="hover:text-gold transition">{label}</Link>
               </li>
             ))}
           </ul>
         </div>
 
+        {/* Contact */}
         <div>
           <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-gold">
             Contact

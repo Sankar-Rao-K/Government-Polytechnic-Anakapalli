@@ -15,13 +15,14 @@ import { Route as PrincipalRouteImport } from './routes/principal'
 import { Route as PlacementsRouteImport } from './routes/placements'
 import { Route as NoticesRouteImport } from './routes/notices'
 import { Route as LibraryRouteImport } from './routes/library'
-import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
-import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as DepartmentsRouteImport } from './routes/departments'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommitteesRouteImport } from './routes/committees'
 import { Route as AntiRaggingRouteImport } from './routes/anti-ragging'
+import { Route as AdmissionsRouteImport } from './routes/admissions'
+import { Route as AdminLoginRouteImport } from './routes/admin-login'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -55,19 +56,9 @@ const LibraryRoute = LibraryRouteImport.update({
   path: '/library',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const EventsRoute = EventsRouteImport.update({
   id: '/events',
   path: '/events',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DownloadsRoute = DownloadsRouteImport.update({
-  id: '/downloads',
-  path: '/downloads',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DepartmentsRoute = DepartmentsRouteImport.update({
@@ -90,6 +81,21 @@ const AntiRaggingRoute = AntiRaggingRouteImport.update({
   path: '/anti-ragging',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdmissionsRoute = AdmissionsRouteImport.update({
+  id: '/admissions',
+  path: '/admissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin-login',
+  path: '/admin-login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -104,13 +110,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/admin-login': typeof AdminLoginRoute
+  '/admissions': typeof AdmissionsRoute
   '/anti-ragging': typeof AntiRaggingRoute
   '/committees': typeof CommitteesRoute
   '/contact': typeof ContactRoute
   '/departments': typeof DepartmentsRoute
-  '/downloads': typeof DownloadsRoute
   '/events': typeof EventsRoute
-  '/gallery': typeof GalleryRoute
   '/library': typeof LibraryRoute
   '/notices': typeof NoticesRoute
   '/placements': typeof PlacementsRoute
@@ -121,13 +128,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/admin-login': typeof AdminLoginRoute
+  '/admissions': typeof AdmissionsRoute
   '/anti-ragging': typeof AntiRaggingRoute
   '/committees': typeof CommitteesRoute
   '/contact': typeof ContactRoute
   '/departments': typeof DepartmentsRoute
-  '/downloads': typeof DownloadsRoute
   '/events': typeof EventsRoute
-  '/gallery': typeof GalleryRoute
   '/library': typeof LibraryRoute
   '/notices': typeof NoticesRoute
   '/placements': typeof PlacementsRoute
@@ -139,13 +147,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/admin-login': typeof AdminLoginRoute
+  '/admissions': typeof AdmissionsRoute
   '/anti-ragging': typeof AntiRaggingRoute
   '/committees': typeof CommitteesRoute
   '/contact': typeof ContactRoute
   '/departments': typeof DepartmentsRoute
-  '/downloads': typeof DownloadsRoute
   '/events': typeof EventsRoute
-  '/gallery': typeof GalleryRoute
   '/library': typeof LibraryRoute
   '/notices': typeof NoticesRoute
   '/placements': typeof PlacementsRoute
@@ -158,13 +167,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/admin'
+    | '/admin-login'
+    | '/admissions'
     | '/anti-ragging'
     | '/committees'
     | '/contact'
     | '/departments'
-    | '/downloads'
     | '/events'
-    | '/gallery'
     | '/library'
     | '/notices'
     | '/placements'
@@ -175,13 +185,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/admin'
+    | '/admin-login'
+    | '/admissions'
     | '/anti-ragging'
     | '/committees'
     | '/contact'
     | '/departments'
-    | '/downloads'
     | '/events'
-    | '/gallery'
     | '/library'
     | '/notices'
     | '/placements'
@@ -192,13 +203,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/admin'
+    | '/admin-login'
+    | '/admissions'
     | '/anti-ragging'
     | '/committees'
     | '/contact'
     | '/departments'
-    | '/downloads'
     | '/events'
-    | '/gallery'
     | '/library'
     | '/notices'
     | '/placements'
@@ -210,13 +222,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdmissionsRoute: typeof AdmissionsRoute
   AntiRaggingRoute: typeof AntiRaggingRoute
   CommitteesRoute: typeof CommitteesRoute
   ContactRoute: typeof ContactRoute
   DepartmentsRoute: typeof DepartmentsRoute
-  DownloadsRoute: typeof DownloadsRoute
   EventsRoute: typeof EventsRoute
-  GalleryRoute: typeof GalleryRoute
   LibraryRoute: typeof LibraryRoute
   NoticesRoute: typeof NoticesRoute
   PlacementsRoute: typeof PlacementsRoute
@@ -269,25 +282,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibraryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/events': {
       id: '/events'
       path: '/events'
       fullPath: '/events'
       preLoaderRoute: typeof EventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/downloads': {
-      id: '/downloads'
-      path: '/downloads'
-      fullPath: '/downloads'
-      preLoaderRoute: typeof DownloadsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/departments': {
@@ -318,6 +317,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AntiRaggingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admissions': {
+      id: '/admissions'
+      path: '/admissions'
+      fullPath: '/admissions'
+      preLoaderRoute: typeof AdmissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-login': {
+      id: '/admin-login'
+      path: '/admin-login'
+      fullPath: '/admin-login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -338,13 +358,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
+  AdminLoginRoute: AdminLoginRoute,
+  AdmissionsRoute: AdmissionsRoute,
   AntiRaggingRoute: AntiRaggingRoute,
   CommitteesRoute: CommitteesRoute,
   ContactRoute: ContactRoute,
   DepartmentsRoute: DepartmentsRoute,
-  DownloadsRoute: DownloadsRoute,
   EventsRoute: EventsRoute,
-  GalleryRoute: GalleryRoute,
   LibraryRoute: LibraryRoute,
   NoticesRoute: NoticesRoute,
   PlacementsRoute: PlacementsRoute,
